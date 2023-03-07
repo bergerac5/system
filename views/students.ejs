@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+  
+  <div class="card">
+    <div class="card-header">
+        <h2 class="col text-center text-info"><%= title %></h2>
+    </div>
+    <div class="card-body">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a href="/add_student" class="btn btn-sm btn-primary">Add use</a>
+        </div><br>
+        <table class="table table-success table-striped">
+          <thead>
+            <tr>
+              <th class="table-white text-info">ID</th>
+              <th class="table-white text-info">FirstName</th>
+              <th class="table-white text-info">LirstName</th>
+              <th class="table-white text-info">Email</th>
+              <th class="table-white text-info">Password</th>
+              <th class="table-white text-info">Gender</th>
+              <th class="table-white text-info">Department_name</th>
+              <th class="table-white text-info">Manipulate</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% users.forEach(function(user){ %>
+                  <tr>
+                      <td class="text-primary"><%= user.ID %></td>
+                      <td class="text-primary"><%= user.FirstName %></td>
+                      <td class="text-primary"><%= user.LirstName %></td>
+                      <td class="text-primary"><%= user.Email %></td>
+                      <td class="text-primary"><%= user.Password %></td>
+                      <td class="text-primary"><%= user.Gender %></td>
+                      <td class="text-primary"><%= user.Department_name %></td>
+                      <td>
+                        <a href="/edit_student/<%= user.id %>" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="delete/<%= user.id %>" class="btn btn-sm btn-danger">Delete</a>
+                      </td>
+                  </tr>
+              <% });
+            %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
